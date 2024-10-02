@@ -13,8 +13,8 @@ async function placeOrder() {
     });
 }
 
-    // Función asincrónica para simular una solicitud de pedido
-async function placeOrde() {
+// Función asincrónica para simular una solicitud de pedido
+async function entregado() {
     
     // Devuelve una nueva Promesa
     return new Promise((resolve) => {
@@ -23,12 +23,39 @@ async function placeOrde() {
         setTimeout(() => {
           
             // Cuando el retraso termina, resuelve la Promesa con el mensaje de éxito
-            resolve("Pedido realizado con éxito!"); // Mensaje de éxito
-        }, 1000); // Retraso de 1 segundo
+            resolve("Pedido entregado  con éxito!"); // Mensaje de éxito
+        }, 5000); // Retraso de 1 segundo
     });
-
-    
 }
+
+async function placeWait() {
+    
+    // Devuelve una nueva Promesa
+    return new Promise((resolve) => {
+       
+        // Simula un retraso en la solicitud usando setTimeout
+        setTimeout(() => {
+          
+            // Cuando el retraso termina, resuelve la Promesa con el mensaje de éxito
+            resolve("Su pedido esta en preparacion. . ."); // Mensaje de éxito
+        }, 2000); // Retraso de 10 segundo
+    });
+}
+
+async function pedidoEncamino() {
+    
+    // Devuelve una nueva Promesa
+    return new Promise((resolve) => {
+       
+        // Simula un retraso en la solicitud usando setTimeout
+        setTimeout(() => {
+          
+            // Cuando el retraso termina, resuelve la Promesa con el mensaje de éxito
+            resolve("Su pedido esta listo y en camino. . ."); // Mensaje de éxito
+        }, 3000); // Retraso de 10 segundo
+    });
+}
+
 
 // Función asincrónica para manejar el clic en el botón de realizar pedido
 async function handleOrderButtonClick() {
@@ -48,12 +75,24 @@ async function handleOrderButtonClick() {
     try {
         // Llama a la función placeOrder y espera a que se complete
         const response = await placeOrder(); // Realiza el pedido
-        
         // Una vez completado el pedido, actualiza el texto del elemento <div> con el mensaje de éxito
+        statusElement.classList.add('order-success'); // Añade clase de éxito
         statusElement.textContent = response;
         
-        // Añade una clase CSS para indicar que el pedido fue exitoso
+
+        const responde = await placeWait(); // En espera
+        statusElement.classList.add('order-wait'); // Añade clase de éxito
+        statusElement.textContent = responde;
+       
+        const respon = await pedidoEncamino(); // En espera
+        statusElement.classList.add('order-encamino'); // Añade clase de éxito
+        statusElement.textContent = respon;
+
+        const respo = await entregado(); // En espera
         statusElement.classList.add('order-success'); // Añade clase de éxito
+        statusElement.textContent = respo;
+
+       
 
         
     } catch (error) {
