@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Pedidos</title>
     <style>
+         h1 {
+            text-align: center;
+            color: #43ce03;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border: rgb(0, 255, 21) 5px solid;
+             margin: 15px;
+             padding: 15px;
+
+        }
+        
         .order-status {
             padding: 10px;
             margin: 5px 0;
@@ -12,17 +27,22 @@
             font-family: Arial, sans-serif;
         }
         .order-success {
-            background-color: #d4edda;
-            color: #155724;
+            background-color: #6cd40b;
+            color: #000000;
         }
         .order-wait {
-            background-color: #d4edda;
+            background-color: #000000;
             color: #dbaa09;
         
         }
         .order-encamino {
-            background-color: #d4edda;
-            color: #0c32db;
+            background-color: #000000;
+            color: #168ad8;
+        
+        }
+        .order-entregada {
+            background-color: #18c440;
+            color: #000000;
         
         }
         .order-error {
@@ -40,8 +60,50 @@
     </style>
 </head>
 <body>
+    <h1>Pedidos realizados</h1>
+    <table>
+        <tr>
+          <td><strong>Producto</strong></td>
+          <td><strong>Precio</strong></td>
+          <td><strong>cantidad</strong></td>
+          <td><strong>Total</strong></td>
+        </tr>
+        
+        <tr>
+          <td>Napolitana</td>
+          <td>10.000</td>
+          <td>1</td>
+        </tr>
+        
+        <tr>
+          <td>Coca-cola</td>
+          <td>3.000</td>
+          <td>1</td>
+        </tr>
+        
+        <tr>
+          <td>Cerveza Quilmes</td>
+          <td>4000</td>
+          <td>1</td>
+        </tr>
+        </table>
+
     <button id="place-order-btn">Realizar Pedido</button>
     <div id="order-status-container"></div>
+    <p id="numero-aleatorio"></p>
+
+
+    <button onclick="generarNumeroAleatorio()">Generar pedido</button>
+    
     <script src="app.js"></script>
+
+    <div id="resultado"></div>
+    
+
+    <script src="agr.js"></script>
+
+    
 </body>
 </html>
+
+

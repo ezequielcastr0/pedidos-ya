@@ -37,9 +37,15 @@ async function placeWait() {
         setTimeout(() => {
           
             // Cuando el retraso termina, resuelve la Promesa con el mensaje de éxito
-            resolve("Su pedido esta en preparacion. . ."); // Mensaje de éxito
+            resolve("El pedido esta en preparacion. . ."); // Mensaje de éxito
         }, 2000); // Retraso de 10 segundo
     });
+}
+
+function generarNumeroAleatorio() {
+    const numero = Math.floor(Math.random() * 5) + 1;
+    document.getElementById('numero-aleatorio').innerText = `Pedido aleatorio: ${numero}`;
+
 }
 
 async function pedidoEncamino() {
@@ -51,14 +57,17 @@ async function pedidoEncamino() {
         setTimeout(() => {
           
             // Cuando el retraso termina, resuelve la Promesa con el mensaje de éxito
-            resolve("Su pedido esta listo y en camino. . ."); // Mensaje de éxito
+            resolve("el pedido esta en camino. . ."); // Mensaje de éxito
         }, 3000); // Retraso de 10 segundo
     });
 }
 
 
 // Función asincrónica para manejar el clic en el botón de realizar pedido
-async function handleOrderButtonClick() {
+    async function handleOrderButtonClick() {
+
+
+    generarNumeroAleatorio();
     
     // Crea un nuevo elemento <div> para mostrar el estado del pedido
     const statusElement = document.createElement('div');
@@ -68,11 +77,14 @@ async function handleOrderButtonClick() {
    
     // Establece el texto inicial del elemento <div> para indicar que el pedido está en proceso
     statusElement.textContent = "Pedido en proceso...";
-   
+    
     // Agrega el nuevo elemento <div> al contenedor con id 'order-status-container' en el DOM
     document.getElementById('order-status-container').appendChild(statusElement); // Agrega el mensaje al contenedor
 
     try {
+
+       
+
         // Llama a la función placeOrder y espera a que se complete
         const response = await placeOrder(); // Realiza el pedido
         // Una vez completado el pedido, actualiza el texto del elemento <div> con el mensaje de éxito
@@ -89,11 +101,8 @@ async function handleOrderButtonClick() {
         statusElement.textContent = respon;
 
         const respo = await entregado(); // En espera
-        statusElement.classList.add('order-success'); // Añade clase de éxito
+        statusElement.classList.add('order-entregada'); // Añade clase de éxito
         statusElement.textContent = respo;
-
-       
-
         
     } catch (error) {
         // Si ocurre un error al realizar el pedido, captura el error
@@ -103,11 +112,16 @@ async function handleOrderButtonClick() {
         statusElement.classList.add('order-error'); // Añade clase de error
     }
 }
+        
 
-// Evento que se dispara cuando el DOM está completamente cargado
-document.addEventListener('DOMContentLoaded', () => {
+   
+
+    // Evento que se dispara cuando el DOM está completamente cargado
+    document.addEventListener('DOMContentLoaded', () => {
     // Agrega un manejador de eventos al botón con id 'place-order-btn'
    
     // Cuando se haga clic en el botón, se llamará a la función handleOrderButtonClick
     document.getElementById('place-order-btn').addEventListener('click', handleOrderButtonClick);
+
+
 });
