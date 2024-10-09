@@ -32,6 +32,10 @@ class Producto {
 
 }
 
+
+
+
+
 // Ejecución
 let inventarioTienda = new Producto();
 
@@ -41,10 +45,14 @@ inventarioTienda.agregarProducto("Coca-Cola",3000);
 inventarioTienda.agregarProducto("Agua Chica",300);
 inventarioTienda.agregarProducto("Milanesa",5000);
 inventarioTienda.agregarProducto("Saladix",1500);
+inventarioTienda.agregarProducto("Agua saboriza",2300);
+inventarioTienda.agregarProducto("Pepsi",2800);
+inventarioTienda.agregarProducto("Docena de empanadas",10000);
 
 // Mostrar inventario inicial
 inventarioTienda.mostrarInventario();
 inventarioTienda.random();
+
 
 
 
