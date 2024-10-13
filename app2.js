@@ -10,8 +10,11 @@ class Producto {
 
   // Método para mostrar el inventario completo
   mostrarInventario() {
-    console.log("Inventario actual:");
-    for (let producto of this.productos) {
+    console.log("PEDIDO:");
+    const aleatorioo = Math.floor(Math.random() *this.productos.length);
+    for (let i = 0; i < aleatorioo; i++ ){
+      const aleatorio = Math.floor(Math.random() *this.productos.length);
+      const producto = this.productos[aleatorio];
       console.log(`Producto: ${producto.nombre}, Precio: ${producto.precio}`);
     }
   }
@@ -31,9 +34,10 @@ class Producto {
   }
 
 }
-
-
-
+function generarNumeroAleatorio() {
+  const numero = Math.floor(Math.random() * 5) + 1;
+  document.getElementById('numero-aleatorio').innerHTML = `Pedido aleatorio: ${numero}`;
+}
 
 
 // Ejecución
@@ -51,6 +55,7 @@ inventarioTienda.agregarProducto("Docena de empanadas",10000);
 
 // Mostrar inventario inicial
 inventarioTienda.mostrarInventario();
+inventarioTienda.random();
 inventarioTienda.random();
 
 
