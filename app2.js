@@ -61,7 +61,7 @@ inventarioTienda.random();
 
 
 
-
+//https://jorgesanchez.net/manuales/html/tablas-html.html#google_vignette/
   //https://github.com/configuroweb/nombres/blob/master/index.html// Fuente y codigo base
   //https://jorgesanchez.net/manuales/html/tablas-html.html#google_vignette//
   //https://www.youtube.com/watch?v=5DaZXXbHI_U//
