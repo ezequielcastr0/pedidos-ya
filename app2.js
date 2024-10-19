@@ -12,18 +12,26 @@ class Producto {
   mostrarInventario() {
     console.log("PEDIDO:");
     const aleatorioo = Math.floor(Math.random() *this.productos.length);
+
+
+    let modeloTabla='<table class="table table-hover"';
+    modeloTabla=modeloTabla+'<tr> <th>Producto</th> <th> Precio</th>'
+  
+    
+  
     for (let i = 0; i < aleatorioo; i++ ){
       const aleatorio = Math.floor(Math.random() *this.productos.length);
       const producto = this.productos[aleatorio];
       console.log(`Producto: ${producto.nombre}, Precio: ${producto.precio}`);
+      modeloTabla=modeloTabla+'<tr>' ;
+      modeloTabla=modeloTabla+'<td>'+producto.nombre +'</td>' ;
+      modeloTabla=modeloTabla+'<td>'+producto.precio +'</td>' ;
+      modeloTabla=modeloTabla+'</tr>' ;
+     
     }
+    modeloTabla=modeloTabla + '</table>'
+    document.getElementById('lista').innerHTML=modeloTabla;
   }
-  random() {
-    const aleatorio = Math.floor(Math.random() *this.productos.length);
-    let productoAleatorio =this.productos[aleatorio];
-    console.log(`Producto aleatorio: ${productoAleatorio.nombre}, Precio: ${productoAleatorio.precio}`);
-    document.getElementById('resultado').innerHTML = `Producto aleatorio: ${productoAleatorio.nombre} - Precio: ${productoAleatorio.precio}`;
-}
   // Método para calcular el valor total del inventario
   calcularValorTotalInventario() {
     let valorTotal = 0;
@@ -34,11 +42,17 @@ class Producto {
   }
 
 }
-function generarNumeroAleatorio() {
-  const numero = Math.floor(Math.random() * 5) + 1;
-  document.getElementById('numero-aleatorio').innerHTML = `Pedido aleatorio: ${numero}`;
-}
 
+function mostratTabla(){
+  let modeloTabla='<table>';
+  modeloTabla=modeloTabla+'<tr> <th>Producto</th> <th> Precio</th>'
+
+
+
+  modeloTabla=modeloTabla + '</table>'
+  document.getElementById('lista').innerHTML=modeloTabla;
+
+}
 
 // Ejecución
 let inventarioTienda = new Producto();
@@ -53,10 +67,8 @@ inventarioTienda.agregarProducto("Agua saboriza",2300);
 inventarioTienda.agregarProducto("Pepsi",2800);
 inventarioTienda.agregarProducto("Docena de empanadas",10000);
 
-// Mostrar inventario inicial
-inventarioTienda.mostrarInventario();
-inventarioTienda.random();
-inventarioTienda.random();
+
+
 
 
 
@@ -64,5 +76,5 @@ inventarioTienda.random();
 //https://jorgesanchez.net/manuales/html/tablas-html.html#google_vignette/
   //https://github.com/configuroweb/nombres/blob/master/index.html// Fuente y codigo base
   //https://jorgesanchez.net/manuales/html/tablas-html.html#google_vignette//
-  //https://www.youtube.com/watch?v=5DaZXXbHI_U//
-  
+ 
+ 

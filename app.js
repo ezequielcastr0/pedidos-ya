@@ -42,11 +42,7 @@ async function placeWait() {
     });
 }
 
-function generarNumeroAleatorio() {
-    const numero = Math.floor(Math.random() * 5) + 1;
-    document.getElementById('numero-aleatorio').innerHTML = `Pedido aleatorio: ${numero}`;
 
-}
 
 async function pedidoEncamino() {
     
@@ -67,7 +63,6 @@ async function pedidoEncamino() {
     async function handleOrderButtonClick() {
 
 
-    generarNumeroAleatorio();
     
     // Crea un nuevo elemento <div> para mostrar el estado del pedido
     const statusElement = document.createElement('div');
