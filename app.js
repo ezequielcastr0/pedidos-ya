@@ -62,8 +62,6 @@ async function pedidoEncamino() {
 // Función asincrónica para manejar el clic en el botón de realizar pedido
     async function handleOrderButtonClick() {
 
-
-    
     // Crea un nuevo elemento <div> para mostrar el estado del pedido
     const statusElement = document.createElement('div');
     
@@ -91,11 +89,11 @@ async function pedidoEncamino() {
         statusElement.classList.add('order-espera'); // Añade clase de éxito
         statusElement.textContent = responde;
        
-        const respon = await pedidoEncamino(); // En espera
+        const respon = await pedidoEncamino(); // En camino
         statusElement.classList.add('order-encamino'); // Añade clase de éxito
         statusElement.textContent = respon;
 
-        const respo = await entregado(); // En espera
+        const respo = await entregado(); // Entregado
         statusElement.classList.add('order-entregada'); // Añade clase de éxito
         statusElement.textContent = respo;
         
