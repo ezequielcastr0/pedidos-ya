@@ -16,7 +16,7 @@ class Producto {
       let clienteAleatorio = Math.floor(Math.random()*Cliente.length); 
       
 
-    let modeloTabla='<table class="table table-hover"';
+    let modeloTabla='<table class="table table-striped"';
     modeloTabla=modeloTabla+'<tr> <th>Cliente<tr><td>'+Cliente[clienteAleatorio] +' </td></tr></th> <th>Producto</th> <th> Precio</th>'
     
     let aleatorioo = Math.floor(Math.random() *this.productos.length);
@@ -34,7 +34,7 @@ class Producto {
      
     }
     
-    modeloTabla=modeloTabla + '</table>'
+    modeloTabla=modeloTabla + '</table>' 
     document.getElementById('lista').innerHTML=modeloTabla;
   }
 
