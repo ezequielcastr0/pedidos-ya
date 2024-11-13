@@ -6,8 +6,7 @@ async function placeOrder() {
        
         // Simula un retraso en la solicitud usando setTimeout
         setTimeout(() => {
-          
-            // Cuando el retraso termina, resuelve la Promesa con el mensaje de éxito
+          cargar();
             resolve("Pedido realizado con éxito!"); // Mensaje de éxito
         }, 1000); // Retraso de 1 segundo
     });
@@ -21,7 +20,7 @@ async function entregado() {
        
         // Simula un retraso en la solicitud usando setTimeout
         setTimeout(() => {
-          
+            cargar();
             // Cuando el retraso termina, resuelve la Promesa con el mensaje de éxito
             resolve("Pedido entregado  con éxito!"); // Mensaje de éxito
         }, 5000); // Retraso de 1 segundo
@@ -35,7 +34,7 @@ async function placeWait() {
        
         // Simula un retraso en la solicitud usando setTimeout
         setTimeout(() => {
-          
+            cargar();
             // Cuando el retraso termina, resuelve la Promesa con el mensaje de éxito
             resolve("El pedido esta en preparacion. . ."); // Mensaje de éxito
         }, 2000); // Retraso de 10 segundo
@@ -51,7 +50,7 @@ async function pedidoEncamino() {
        
         // Simula un retraso en la solicitud usando setTimeout
         setTimeout(() => {
-          
+            cargar();
             // Cuando el retraso termina, resuelve la Promesa con el mensaje de éxito
             resolve("el pedido esta en camino. . ."); // Mensaje de éxito
         }, 3000); // Retraso de 10 segundo
@@ -105,7 +104,12 @@ async function pedidoEncamino() {
         statusElement.classList.add('order-error'); // Añade clase de error
     }
 }
-        
+        function cargar(){
+             var barra =document.getElementById('barra');
+             barra.value +=25;
+             
+
+        }
 
 
     // Evento que se dispara cuando el DOM está completamente cargado
